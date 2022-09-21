@@ -72,28 +72,28 @@ if( isset($_POST['submit']) ){
         <section class="row justify-content-center">
             <section class="col-12 col-sm-6 col-md-4">
                 <form class="form-container" action="login.php" method="POST">
-                    <h4 class="text-center font-weight-bold"> Sign-In </h4>
+                    <h4 class="text-center font-weight-bold"> Masuk </h4>
                     <?php if($error != ''){ ?>
                     <div class="alert alert-danger" role="alert"><?= $error; ?></div>
                     <?php } ?>
 
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="username">Nama Pengguna</label>
                         <input type="text" class="form-control" id="username" name="username"
-                            placeholder="Masukkan username">
+                            placeholder="Masukkan Nama Pengguna">
                     </div>
                     <div class="form-group">
                         <label for="InputPassword">Password</label>
                         <input type="password" class="form-control" id="InputPassword" name="password"
-                            placeholder="Password">
+                            placeholder="Masukan Kata Sandi">
                         <?php if($validate != '') {?>
                         <p class="text-danger"><?= $validate; ?></p>
                         <?php }?>
                     </div>
 
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Sign In</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Masuk</button>
                     <div class="form-footer mt-2">
-                        <p> Belum punya account? <a href="register.php">Register</a></p>
+                        <p> Belum punya akun? <a href="register.php">Daftar</a></p>
                     </div>
                 </form>
             </section>

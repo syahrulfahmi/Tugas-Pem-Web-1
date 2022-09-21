@@ -37,7 +37,7 @@ if(!isset($_SESSION['username']) ){
         </h2>
         <p>
             <a href="logout.php">
-                Click here to Logout
+                Klik disini untuk logout
             </a>
         </p>
         <?php endif ?>

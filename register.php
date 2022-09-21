@@ -120,7 +120,7 @@ if( isset($_POST['submit']) ){
                     <div class="form-group">
                         <label for="InputPassword">Kata Sandi</label>
                         <input type="password" class="form-control" id="InputPassword" name="password"
-                            placeholder="Password">
+                            placeholder="Masukan Kata Sandi">
                         <?php if($validate != '') {?>
                         <p class="text-danger"><?= $validate; ?></p>
                         <?php }?>
@@ -133,9 +133,9 @@ if( isset($_POST['submit']) ){
                         <p class="text-danger"><?= $validate; ?></p>
                         <?php }?>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Register</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Daftar</button>
                     <div class="form-footer mt-2">
-                        <p> Sudah punya account? <a href="login.php">Login</a></p>
+                        <p> Sudah punya akun? <a href="login.php">Masuk</a></p>
                     </div>
                 </form>
             </section>
