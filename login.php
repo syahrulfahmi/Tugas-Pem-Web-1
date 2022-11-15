@@ -75,7 +75,7 @@
         $(function() {
             $('form').on('submit', function(e) {
                 e.preventDefault()
-                location.href = 'http://localhost/web1/index.php';
+                location.href = 'http://localhost/web1/dashboard/index.php';
                 // $.ajax({
                 //     type: 'post',
                 //     url: 'action/login.php',
