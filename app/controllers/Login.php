@@ -16,6 +16,10 @@ class Login extends Controller
         $userData = $this->model('User_model')->getUserByNim($userNim);
         if (password_verify($password, $userData['user_password'])) {
             if ($userData['user_status'] == 'A') {
+                $_SESSION['user'] = [
+                    'is_login' => true,
+                    'data' => $userData
+                ];
                 header('Location:' . BASEURL . '/dashboard');
             } else {
                 echo 'kehalaman mahasiswa';
