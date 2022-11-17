@@ -1,3 +1,15 @@
+<?
+if (isset($_SESSION['user']['is_login'])) {
+    if ($_SESSION['user']['data']['user_status'] == 'A') {
+        header('Location: http://localhost/pemweb/public/dashboard');
+    } else {
+        echo 'ke halaman mahasiswa';
+        // header('Location: http://localhost/pemweb/public/dashboard');
+    }
+    exit();
+}
+?>
+
 <body class="my-login-page">
     <section class="mt-4">
         <div class=" container h-100">
