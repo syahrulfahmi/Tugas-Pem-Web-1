@@ -16,4 +16,19 @@ class User_Model
         $this->db->bind('nim', $nim);
         return $this->db->single();
     }
+
+    public function getAllMhs()
+    {
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE user_status = 'M'");
+        return $this->db->resultSet();
+    }
+
+    public function searchMhs()
+    {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM tb_users WHERE user_name LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        return $this->db->resultSet();
+    }
 }
