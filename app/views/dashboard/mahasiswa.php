@@ -40,7 +40,7 @@
                         <td><? echo $mhs['user_name'] ?></td>
                         <td><? echo $mhs['user_nim'] ?></td>
                         <td>
-                            <a href="#" data-id="<?php echo $mhs['user_nim'] ?>" id="detail" class="badge badge-primary mr-2" onclick="goToDetail(<?php echo $mhs['user_nim'] ?>)">Detail</a>
+                            <a href="<?php echo BASEURL; ?>/dashboard/mahasiswa?detail=<?php echo $mhs['user_nim'] ?>" data-id="<?php echo $mhs['user_nim'] ?>" id="detail" class="badge badge-primary mr-2" onclick="goToDetail(<?php echo $mhs['user_nim'] ?>)">Detail</a>
                             <a href="<?php echo BASEURL; ?>/mahasiswa/ubah/<?php echo $mhs['id'] ?>" class="badge badge-success mr-2 tampilModalUbah" data-toggle="modal" data-target="#formModal" data-id="<?php echo $mhs['id'] ?>">Ubah</a>
                             <a href="<?php echo BASEURL; ?>/mahasiswa/hapus/<?php echo $mhs['id'] ?>" class="badge badge-danger mr-1" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">Hapus</a>
                         </td>
@@ -51,10 +51,10 @@
     </div>
 </body>
 <script>
-    function goToDetail(nim) {
-        console.log(nim);
-        loadContent('http://localhost/pemweb/public/dashboard/detail/' + nim);
-    }
+    // function goToDetail(nim) {
+    //     console.log(nim);
+    //     loadContent('http://localhost/pemweb/public/dashboard/detail/' + nim);
+    // }
 </script>
 
 </html>
