@@ -20,10 +20,9 @@ class Login extends Controller
                     'is_login' => true,
                     'data' => $userData
                 ];
-                header('Location:' . BASEURL . '/dashboard');
+                header('Location:' . BASEURL . '/dashboard?page=main');
             } else {
-                echo 'kehalaman mahasiswa';
-                // header('Location:' . BASEURL . '/dashboard');
+                header('Location:' . BASEURL . '/mahasiswa');
             }
             exit;
         } else {

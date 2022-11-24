@@ -9,8 +9,8 @@ class Dashboard extends Controller
         $url = basename($_SERVER['REQUEST_URI']);
         $query = parse_url($url, PHP_URL_QUERY);
         parse_str($query, $params);
-        $test = $params['page'];
-        switch ($test) {
+        $param = $params['page'];
+        switch ($param) {
             case 'mahasiswa':
                 $data['mhs'] = $this->model('User_model')->getAllMhs();
                 $this->view('dashboard/mahasiswa', $data);
@@ -25,6 +25,7 @@ class Dashboard extends Controller
                 var_dump("transaksi");
                 break;
             case 'main':
+                $data['jml_mhs'] = $this->model('User_model')->getAllMhs();
                 $this->view('dashboard/index', $data);
                 break;
             default:
