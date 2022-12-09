@@ -115,6 +115,7 @@ a {
 }
 
 .nav_link:hover {
+  text-decoration: none;
   color: var(--white-color)
 }
 

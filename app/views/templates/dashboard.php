@@ -12,10 +12,10 @@ if (!isset($_SESSION['user']['is_login'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<? echo BASEURL; ?>/css/sidebar.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>/css/bootstrap.css">
     <link rel="icon" type="image/x-icon" href="<? echo BASEURL; ?>/img/favicon.ico">
     <title><? echo $data['judul'] ?></title>
+
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
@@ -134,6 +134,7 @@ if (!isset($_SESSION['user']['is_login'])) {
         }
 
         .nav_link:hover {
+            text-decoration: none;
             color: var(--white-color)
         }
 
@@ -141,7 +142,7 @@ if (!isset($_SESSION['user']['is_login'])) {
             font-size: 1.25rem
         }
 
-        .show {
+        .show-navbar {
             left: 0
         }
 
@@ -191,7 +192,7 @@ if (!isset($_SESSION['user']['is_login'])) {
                 padding: 1rem 1rem 0 0
             }
 
-            .show {
+            .show-navbar {
                 width: calc(var(--nav-width) + 156px)
             }
 
@@ -200,49 +201,11 @@ if (!isset($_SESSION['user']['is_login'])) {
             }
         }
     </style>
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(event) {
-
-            const showNavbar = (toggleId, navId, bodyId, headerId) => {
-                const toggle = document.getElementById(toggleId),
-                    nav = document.getElementById(navId),
-                    bodypd = document.getElementById(bodyId),
-                    headerpd = document.getElementById(headerId)
-
-                // Validate that all variables exist
-                if (toggle && nav && bodypd && headerpd) {
-                    toggle.addEventListener('click', () => {
-                        nav.classList.toggle('show')
-                        toggle.classList.toggle('bx-x')
-                        bodypd.classList.toggle('body-pd')
-                        headerpd.classList.toggle('body-pd')
-                    })
-                }
-            }
-
-            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
-
-            /*===== LINK ACTIVE =====*/
-            const linkColor = document.querySelectorAll('.nav_link')
-
-            function colorLink() {
-                // if (linkColor) {
-                //     console.log(linkColor);
-                //     linkColor.forEach(l => l.classList.remove('active'))
-                //     this.classList.add('active')
-                // }
-            }
-            linkColor.forEach(l => l.addEventListener('click', colorLink))
-
-        });
-    </script>
 </head>
 
-<body id="body-pd">
-    <header class="header" id="header">
-        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+<body id="body-pd" class="body-pd">
+    <header class="header body-pd" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu bx-x' id="header-toggle"></i> </div>
         <div style="display: flex; align-items: center;">
             <strong style="margin-right: 12px;">
                 Welcome, <? echo $_SESSION['user']['data']['user_name']; ?>
@@ -252,7 +215,7 @@ if (!isset($_SESSION['user']['is_login'])) {
             </div>
         </div>
     </header>
-    <div class="l-navbar" id="nav-bar">
+    <div class="l-navbar show-navbar" id="nav-bar">
         <nav class="nav">
             <div>
                 <a id="logo_header" class="nav_logo">
@@ -265,9 +228,9 @@ if (!isset($_SESSION['user']['is_login'])) {
                     </a>
                     <a href="<? echo BASEURL; ?>/dashboard?page=mahasiswa" id="mahasiswa" class="nav_link"> <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name">Mahasiswa</span> </a>
-                    <a href="<? echo BASEURL; ?>/dashboard?page=semester" id="semester" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i>
+                    <!-- <a href="<? echo BASEURL; ?>/dashboard?page=semester" id="semester" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i>
                         <span class="nav_name">Semester</span>
-                    </a>
+                    </a> -->
                     <a href="<? echo BASEURL; ?>/dashboard?page=program-studi" class="nav_link"> <i class='bx bx-folder nav_icon'></i>
                         <span class="nav_name">Program Studi</span>
                     </a>
@@ -284,6 +247,32 @@ if (!isset($_SESSION['user']['is_login'])) {
     <!--Container Main end-->
 </body>
 
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="<?php echo BASEURL; ?>/js/bootstrap.js"></script>
+<script src="<?php echo BASEURL; ?>/js/script.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+            const toggle = document.getElementById(toggleId),
+                nav = document.getElementById(navId),
+                bodypd = document.getElementById(bodyId),
+                headerpd = document.getElementById(headerId)
+
+            // Validate that all variables exist
+            if (toggle && nav && bodypd && headerpd) {
+                toggle.addEventListener('click', () => {
+                    nav.classList.toggle('show-navbar')
+                    toggle.classList.toggle('bx-x')
+                    bodypd.classList.toggle('body-pd')
+                    headerpd.classList.toggle('body-pd')
+                })
+            }
+        }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+    });
+</script>
 <script>
     $(document).ready(function() {
         $('.nav_link').each(function() {

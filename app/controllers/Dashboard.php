@@ -9,26 +9,28 @@ class Dashboard extends Controller
         $url = basename($_SERVER['REQUEST_URI']);
         $query = parse_url($url, PHP_URL_QUERY);
         parse_str($query, $params);
-        $param = $params['page'];
-        switch ($param) {
-            case 'mahasiswa':
-                $data['mhs'] = $this->model('User_model')->getAllMhs();
-                $this->view('dashboard/mahasiswa', $data);
-                break;
-            case 'program-studi':
-                var_dump("program-studi");
-                break;
-            case 'semester':
-                $this->view('dashboard/semester', $data);
-                break;
-            case 'transaksi':
-                var_dump("transaksi");
-                break;
-            case 'main':
-                $data['jml_mhs'] = $this->model('User_model')->getAllMhs();
-                $this->view('dashboard/index', $data);
-                break;
-            default:
+        if (isset($params['page'])) {
+            $param = $params['page'];
+            switch ($param) {
+                case 'mahasiswa':
+                    $data['mhs'] = $this->model('User_model')->getAllMhs();
+                    $this->view('dashboard/mahasiswa', $data);
+                    break;
+                case 'program-studi':
+                    var_dump("program-studi");
+                    break;
+                case 'semester':
+                    $this->view('dashboard/semester', $data);
+                    break;
+                case 'transaksi':
+                    var_dump("transaksi");
+                    break;
+                case 'main':
+                    $data['jml_mhs'] = $this->model('User_model')->getAllMhs();
+                    $this->view('dashboard/index', $data);
+                    break;
+                default:
+            }
         }
     }
 
