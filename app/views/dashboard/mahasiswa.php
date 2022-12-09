@@ -79,10 +79,9 @@
                     <div class="form-group">
                         <label for="jurusan">Jurusan</label>
                         <select class="form-control" id="jurusan" name="jurusan">
-                            <option value="Teknik Informatika">Teknik Informatika</option>
-                            <option value="Teknik Industri">Teknik Industri</option>
-                            <option value="Teknik Mesin">Teknik Mesin</option>
-                            <option value="Teknik Pangan">Teknik Pangan</option>
+                            <?php foreach ($data['prodi'] as $key => $prodi) : ?>
+                                <option value="<? echo $prodi['prod_id'] ?>"><? echo $prodi['prod_name'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
             </div>
@@ -94,3 +93,5 @@
         </div>
     </div>
 </div>
+
+<script src="<?php echo BASEURL; ?>/js/script-modal-mahasiswa.js"></script>

@@ -14,10 +14,12 @@ class Dashboard extends Controller
             switch ($param) {
                 case 'mahasiswa':
                     $data['mhs'] = $this->model('User_model')->getAllMhs();
+                    $data['prodi'] = $this->model('Programstudi_Model')->getProdi();
                     $this->view('dashboard/mahasiswa', $data);
                     break;
                 case 'program-studi':
-                    var_dump("program-studi");
+                    $data['prodi'] = $this->model('Programstudi_Model')->getProdi();
+                    $this->view('dashboard/prodi', $data);
                     break;
                 case 'semester':
                     $this->view('dashboard/semester', $data);
@@ -48,7 +50,7 @@ class Dashboard extends Controller
 
     public function detail($nim)
     {
-        $data['mhs'] = $this->model('User_model')->getUserByNim($nim);
+        $data['mhs'] = $this->model('User_model')->getMhsByNim($nim);
         $data['judul'] = "Dashboard";
         $this->view('templates/dashboard', $data);
         $this->view('dashboard/mahasiswa/mahasiswa_detail', $data);

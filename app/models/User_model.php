@@ -33,7 +33,7 @@ class User_Model
     public function insertMhs($data)
     {
         $hashPassword = password_hash("123456789", PASSWORD_DEFAULT); // default password
-        $query = "INSERT INTO tb_users(user_name, user_nim, user_prod, user_password, user_status) VALUES (:nama, :nim, :jurusan, :password, 'M')";
+        $query = "INSERT INTO tb_users(user_name, user_nim, prod_id, user_password, user_status) VALUES (:nama, :nim, :jurusan, :password, 'M')";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nim', $data['nim']);
