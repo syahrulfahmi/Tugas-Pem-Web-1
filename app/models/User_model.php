@@ -32,11 +32,13 @@ class User_Model
 
     public function insertMhs($data)
     {
-        $query = "INSERT INTO tb_users(user_name, user_nim, user_prod, user_status) VALUES (:nama, :nim, :jurusan, 'M')";
+        $hashPassword = password_hash("123456789", PASSWORD_DEFAULT); // default password
+        $query = "INSERT INTO tb_users(user_name, user_nim, user_prod, user_password, user_status) VALUES (:nama, :nim, :jurusan, :password, 'M')";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nim', $data['nim']);
         $this->db->bind('jurusan', $data['jurusan']);
+        $this->db->bind('password', $hashPassword);
         $this->db->execute();
         return $this->db->rowCount();
     }
