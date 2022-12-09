@@ -13,15 +13,15 @@ $(function () {
         $('.modal-body form').attr('action', 'http://localhost/pemweb/public/prodi/ubah');
 
         const prodId = $(this).data('id');
+        console.log(prodId);
         $.ajax({
             url: 'http://localhost/pemweb/public/prodi/getprodi',
             data: { prod_id: prodId },
             method: 'post',
             dataType: 'json',
             success: function (data) {
-                console.log(data);
                 $('#prod_name').val(data.prod_name);
-                $('#id').val(data.prod_id);
+                $('#prod_id').val(data.prod_id);
             }
         });
     })

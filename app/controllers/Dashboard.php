@@ -29,6 +29,7 @@ class Dashboard extends Controller
                     break;
                 case 'main':
                     $data['jml_mhs'] = $this->model('User_model')->getAllMhs();
+                    $data['jml_prodi'] = $this->model('Programstudi_Model')->getProdi();
                     $this->view('dashboard/index', $data);
                     break;
                 default:

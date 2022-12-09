@@ -53,7 +53,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?php echo BASEURL ?>/prodi/tambah" method="post">
-                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="prod_id" id="prod_id">
                     <div class="form-group">
                         <label for="prod_name">Nama Program Studi</label>
                         <input type="text" class="form-control" id="prod_name" name="prod_name" required>
