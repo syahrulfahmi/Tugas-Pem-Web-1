@@ -32,7 +32,7 @@ class Mahasiswa extends Controller
 
     public function ubah()
     {
-        if ($this->model('User_model')->ubahDataMhs($_POST) > 0) {
+        if ($this->model('User_model')->changeMhs($_POST) > 0) {
             Flasher::setFlash('Berhasil mengubah data', 'success');
             header('Location:' . BASEURL . '/dashboard?page=mahasiswa');
             exit;

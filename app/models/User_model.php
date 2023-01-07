@@ -46,12 +46,12 @@ class User_Model
     public function changeMhs($data)
     {
 
-        $query = "UPDATE tb_users SET user_name = :nama, user_nim=:nim, user_prod=:jurusan WHERE id=:id";
+        $query = "UPDATE tb_users SET user_name = :nama, user_nim=:nim, prod_id=:jurusan WHERE user_nim=:nim";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nim', $data['nim']);
         $this->db->bind('jurusan', $data['jurusan']);
-        $this->db->bind('id', $data['id']);
+
         $this->db->execute();
         return $this->db->rowCount();
     }
